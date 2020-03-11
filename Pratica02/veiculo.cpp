@@ -33,11 +33,11 @@ using namespace std;
 		this->vel_max = numero;
 	}
 
-	string Veiculo{
-		return this.
+	string Veiculo::getNome() {
+		return this->nome;
 	}
 
-	void mover(){
-		 cout << ("O Veiculo " +  + " foi movido") << endl;
-	}
+
+
+
 

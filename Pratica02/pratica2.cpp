@@ -17,7 +17,8 @@ using namespace std;
 
 
 		Veiculo * terr = new Terrestre("VT1");
-		((Terrestre *) terr)->setCap_pass(45);
+//		((Terrestre *) terr)->setCap_pass(45);
+		dynamic_cast<terr>(Terrestre)->setCap_pass();
 
 		Veiculo * aqua = new Aquatico("VO1");
 		((Aquatico *) aqua)->setCarga_Max(12.5);
@@ -25,7 +26,15 @@ using namespace std;
 		Veiculo * aereo = new Aereo("VA1");
 		((Aereo *) aereo)->setVel_max(1040.5);
 
+		terr->mover();
 
+		aqua->mover();
+		aereo->mover();
+
+		delete terr;
+		delete aqua;
+		delete aereo;
+		dynamic_cast<NovoTipo>(var)->metodo();
 
 }
 

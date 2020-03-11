@@ -18,8 +18,9 @@ using namespace std;
 			this->nome = param;
 			cout << "O objeto " + nome + " foi criado com sucesso!!!" << endl;
 		}
-		string getNome();
-		void mover();
+		string  getNome();
+		virtual void mover();
+		virtual ~Veiculo(){};
 
 	};
 
@@ -29,9 +30,14 @@ using namespace std;
 
 		int getCap_pass();
 		void setCap_pass(int cap_pass);
-		void mover();
+		virtual void mover();
+		virtual ~Terrestre(){};
 	private:
 		int cap_pass = 5;//Numero maximo de passageiros//
+	protected:
+		Terrestre(){
+			Veiculo("teste");
+		}
 
 	};
 
@@ -43,10 +49,15 @@ using namespace std;
 
 		void setCarga_Max(float carga_Max);
 		float getCarga_Max();
-		void mover();
+		virtual void mover();
+		virtual ~Aquatico(){};
 
 	private:
 				float carga_Max = 10;//Carga maxima em tonelada//
+	protected:
+		Aquatico(){
+			Veiculo("teste");
+		}
 
 
 	};
@@ -58,10 +69,20 @@ using namespace std;
 
 		void setVel_max(float vel_max);
 		float getVel_max();
-		void mover();
+		virtual void mover();
+		virtual ~Aereo(){};
 	private:
 		float vel_max = 100;// Velocidade maxima em km/h//
 
+	};
+
+	class Anfibio : public virtual Terrestre, Aquatico{
+
+		Anfibio (const char * nome) : Veiculo(nome), Terrestre(), Aquatico() {}
+		virtual void mover(){
+			Terrestre::mover();
+			Aquatico::mover();
+		}
 	};
 
 
