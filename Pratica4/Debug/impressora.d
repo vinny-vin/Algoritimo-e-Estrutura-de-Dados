@@ -1,0 +1,1 @@
+impressora.o: ../impressora.cpp
